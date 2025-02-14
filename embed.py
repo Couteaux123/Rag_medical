@@ -219,7 +219,7 @@ def extract_drag_info(input_text):   #切分标准化输入
 
     return drugs, standard_outputs
 
-def verify_data_in_es(es, es_index, doc_id, sub_titles):
+def verify_data_in_es(es, es_index, doc_id, sub_title):
 
     output = []
 
@@ -233,9 +233,9 @@ def verify_data_in_es(es, es_index, doc_id, sub_titles):
         found_content = []
 
         #验证问题中的字段是否存在指定药品的小标题中
-        for sub_title in sub_titles:  #[性状]
-            if sub_title in subsections and subsections[sub_title]:
-                found_content.append(f"小标题 '{sub_title}' 的内容:\n{subsections[sub_title]}")
+        # for sub_title in sub_titles:  #[性状]
+        if sub_title in subsections and subsections[sub_title]:
+            found_content.append(f"小标题 '{sub_title}' 的内容:\n{subsections[sub_title]}")
 
         if found_content:
             output.append("\n".join(found_content))            #返回单个药品中的在数据库中存在字段的内容

@@ -86,21 +86,7 @@ class UploadDoc:
         vector_index_path = os.path.join(vector_index_path, f"{index_name}.npz")
         process_vector_index(index_name, vector_index_path, es)
 
-def import_new_doc(upload_file, index_name, vector_index_path, es):
-    
-    if upload_file is not None:
-        file_input = upload_file#.name #获取上传文件的路径
-        # 检查配置是否已设置
-        # if not config or 'es_host' not in config:
-        #     return "请先更新配置!"
-        
-        uploader = UploadDoc(file_input=file_input)
-        uploader.upload_doc(index_name, vector_index_path, es)
-        
-        print("上传文件成功！")
 
-    else:
-        print("没有上传文件")
 # from embed import connect_elasticresearch
 # from elasticsearch import Elasticsearch
 # es = Elasticsearch([{'host': 'localhost', 'port': 9200, 'scheme': 'http'}])
